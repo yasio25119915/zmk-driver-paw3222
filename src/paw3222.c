@@ -236,6 +236,9 @@ static void paw32xx_motion_work_handler(struct k_work *work) {
 
     LOG_DBG("x=%4d y=%4d", x, y);
 
+	int16_t x = raw_x;
+    int16_t y = raw_y;
+	
 	int16_t new_x =  y;
     int16_t new_y = -x;
 
