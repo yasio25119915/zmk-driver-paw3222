@@ -236,16 +236,13 @@ static void paw32xx_motion_work_handler(struct k_work *work) {
 
     LOG_DBG("x=%4d y=%4d", x, y);
 
-	int16_t x = raw_x;
-    int16_t y = raw_y;
-	
-	int16_t new_x =  y;
-    int16_t new_y = -x;
+	int new_x = y;
+    int new_y = -x;
 
-    input_report_rel(data->dev, INPUT_REL_X, new_x, true, K_FOREVER);
-    input_report_rel(data->dev, INPUT_REL_Y, new_y, true, K_FOREVER);
+      input_report_rel(data->dev, INPUT_REL_X, new_x, true, K_FOREVER);
+      input_report_rel(data->dev, INPUT_REL_Y, new_y, true, K_FOREVER);
 
-//	input_report_rel(data->dev, INPUT_REL_X, x, true, K_FOREVER);
+//    input_report_rel(data->dev, INPUT_REL_X, x, true, K_FOREVER);
 //    input_report_rel(data->dev, INPUT_REL_Y, -y, true, K_FOREVER);
 
     // Schedule next check after 15ms without using interrupts
