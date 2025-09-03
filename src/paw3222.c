@@ -237,7 +237,7 @@ static void paw32xx_motion_work_handler(struct k_work *work) {
     LOG_DBG("x=%4d y=%4d", x, y);
 
     input_report_rel(data->dev, INPUT_REL_X, x, true, K_FOREVER);
-    input_report_rel(data->dev, INPUT_REL_Y, -y, true, K_FOREVER);
+    input_report_rel(data->dev, INPUT_REL_Y, y, true, K_FOREVER);
 
     // Schedule next check after 15ms without using interrupts
     k_timer_start(&data->motion_timer, K_MSEC(15), K_NO_WAIT);
