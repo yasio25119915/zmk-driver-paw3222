@@ -4,3 +4,15 @@ menuconfig PAW3222
   select SPI
     help
       Enable PAW3222 mouse optical sensor.
+
+config PAW3222_MOVEMENT_THRESHOLD
+    int "Movement threshold for auto-mouse-layer activation"
+    default 3
+
+config PAW3222_AUTOMOUSE_TIMEOUT_MS
+    int "Timeout (ms) before auto-mouse-layer deactivates"
+    default 2000
+
+config PAW3222_SCROLL_TICK
+    int "Delta value required for one scroll step"
+    default 30
