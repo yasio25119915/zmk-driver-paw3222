@@ -241,6 +241,7 @@ static void paw32xx_motion_work_handler(struct k_work *work) {
 
       input_report_rel(data->dev, INPUT_REL_X, new_x, true, K_FOREVER);
       input_report_rel(data->dev, INPUT_REL_Y, new_y, true, K_FOREVER);
+      input_report_rel_commit(data->dev);
 
 //    input_report_rel(data->dev, INPUT_REL_X, x, true, K_FOREVER);
 //    input_report_rel(data->dev, INPUT_REL_Y, -y, true, K_FOREVER);
